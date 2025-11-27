@@ -1,0 +1,22 @@
+# Caminho para o diretório raiz
+path: ./data
+
+# Caminhos para os arquivos de treinamento e validação
+train: images/train  
+val: images/val      
+
+# Número de classes (CORRETO: 10)
+nc: 10 
+
+# Nomes das classes (INCORRETO: Você só tinha 3. PRECISA de 10)
+names:
+  0: hardhat        # Classe 0
+  1: vest           # Classe 1
+  2: safety_belt    # Classe 2
+  3: person         # Classe 3  <-- Adicione daqui
+  4: gloves         # Classe 4
+  5: boots          # Classe 5
+  6: safety_net     # Classe 6
+  7: harness        # Classe 7
+  8: goggle         # Classe 8
+  9: ear_protector  # Classe 9  <-- Até aqui (Total de 10 itens)w

@@ -1,0 +1,19 @@
+# Caminhos para as imagens de treino e validação (caminhos absolutos)
+train: C:\Users\camila\Downloads\archive\css-data\train
+val: C:\Users\camila\Downloads\archive\css-data\valid      
+test: C:\Users\camila\Downloads\archive\css-data\test
+ 
+# Informações do dataset
+nc: 11 # Total de 11 classes (10 antigas + 1 nova)
+names:
+  0: Hardhat
+  1: Mask
+  2: NO-Hardhat
+  3: NO-Mask
+  4: NO-Safety Vest
+  5: Person
+  6: Safety Cone
+  7: Safety Vest
+  8: machinery
+  9: vehicle
+  10: Goggle # A nova classe de oculos

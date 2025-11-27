@@ -16,10 +16,11 @@ O modelo final (`best.pt`) está disponível na pasta de resultados.
 
 O projeto usa a **fusão de dois datasets** públicos para garantir alta precisão, especialmente na detecção de óculos.
 
-1.  **Dataset Principal (PPE de Construção):** Usado para treinar as 10 classes base (Capacete, Colete, etc.).
-    * **Referência:** Dataset encontrado originalmente no Kaggle ou Roboflow (versão **28** ou similar).
+1.  **Dataset Principal (PPE de Construção - 10 Classes):**
+    * **Fonte:** [Kaggle - Construction Site Safety Image Dataset (Roboflow)] (https://www.kaggle.com/datasets/snehilsanyal/construction-site-safety-image-dataset-roboflow)
+    * **Classes Iniciais:** Hardhat, Mask, NO-Hardhat, NO-Mask, NO-Safety Vest, Person, Safety Cone, Safety Vest, machinery, vehicle.
     
-2.  **Dataset Suplementar (Óculos - Goggle):** Um dataset separado do Roboflow focado apenas em óculos de proteção.
+2.  **Dataset Suplementar (Óculos - Goggle):** Um dataset separado do Roboflow focado apenas em óculos de proteção. https://universe.roboflow.com/safemind-onkro/glass-kuedh-qgclk/dataset/1
     * **Finalidade:** Foi usado para **aumentar a precisão** da classe Goggle e adicioná-la ao modelo base.
 
 ## ⚙️ Passo a Passo para Treinar e Usar (Instruções)

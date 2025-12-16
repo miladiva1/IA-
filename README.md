@@ -1,40 +1,39 @@
-👷‍♂️ Detecção de EPI (Equipamento de Proteção Individual) - YOLOv8nEste projeto implementa um modelo de Detecção de Objetos (**YOLOv8n**) focado em detectar itens de segurança em canteiros de obras. O modelo foi treinado para reconhecer **11 classes** de EPI.
+👷‍♂️ PPE (Personal Protective Equipment) Detection - YOLOv8nThis project implements an Object Detection model (**YOLOv8n**) focused on detecting safety items in construction sites. The model was trained to recognize **11 classes** of PPE.
 
 ---
 
-###🌟 Resultados Finais do ModeloO treinamento final foi interrompido na Época 99, apresentando o melhor desempenho nesse ponto.
+###🌟 Final Model ResultsThe final training was stopped at Epoch 99, showing the best performance at that point.
 
-| Métrica | Valor |
+| Metric | Value |
 | --- | --- |
 | **mAP50** | **0.82500** (82.50%) |
-| Épocas Concluídas | **99** |
-| Modelo Final | `best.pt` (localizado no repositório) |
+| Epochs Completed | **99** |
+| Final Model | `best.pt` (located in the repository) |
 
 ---
 
-###💾 Fontes de Dados e PreparaçãoO projeto utiliza a **fusão de tres *datasets*** públicos, resultando em **12 classes** de detecção. O mapeamento das classes e o caminho dos dados estão definidos no arquivo **`ppe_glass_data.yaml`**.
+###💾 Data Sources and PreparationThe project uses the **fusion of three public datasets**, resulting in **11 classes** of detection. The class mapping and data path are defined in the **`ppe_glass_data.yaml`** file.
 
-####Processo de Preparação1. **Fusão e Estrutura:** Os *datasets* foram combinados em uma estrutura YOLOv8 (`train/images`, `valid/labels`, etc.) na pasta `css-data`.
-2. **Mapeamento de Classes:** Foi realizado o remapeamento manual para garantir que a classe de `Glasses` (Óculos) fosse mapeada corretamente para o **ID 10** dentro do arquivo **`ppe_glass_data.yaml`**, resultando nas 11 classes finais.
+####Preparation Process1. **Fusion and Structure:** The datasets were combined into a YOLOv8 structure (`train/images`, `valid/labels`, etc.) in the `css-data` folder.
+2. **Class Mapping:** Manual remapping was performed to ensure the `Glasses` class was correctly mapped to **ID 10** within the **`ppe_glass_data.yaml`** file, resulting in the 11 final classes.
 
-| Detalhes do Dataset |
+| Dataset Details |
 | --- |
-| **Dataset Principal (PPE de Construção - 10 Classes):** Fonte:https://www.kaggle.com/datasets/snehilsanyal/construction-site-safety-image-dataset-roboflow
-| **Classe Adicional:** A classe de óculos foi incluída no ID `10` após a fusão dos dados. |
-https://universe.roboflow.com/v2-tc2ax/glass-kuedh
-https://universe.roboflow.com/work-dvvvh/gloves-gzbgu
+| **Main Dataset (Construction PPE - 10 Classes):** Source: [Kaggle - Construction Site Safety Image Dataset (Roboflow)](https://www.kaggle.com/datasets/snehilsanyal/construction-site-safety-image-dataset-roboflow) |
+| **Additional Data Sources (Used for Glasses and Gloves):** [Roboflow - glass-kuedh](https://universe.roboflow.com/v2-tc2ax/glass-kuedh), [Roboflow - gloves-gzbgu](https://universe.roboflow.com/work-dvvvh/gloves-gzbgu). |
+| **Final Classes:** The final classes included `Glasses` (mapped to ID 10) and the original 10 classes, totaling **11 classes**. |
 
 ---
 
-###⚙️ Passo a Passo para Treinar e Usar (Instruções)####A. Configuração do Ambiente1. **Instalar/Ativar Ambiente:** Ative o ambiente virtual **`yolo`** no Anaconda Prompt.
+###⚙️ Step-by-Step Guide for Training and Usage (Instructions)####A. Environment Setup1. **Install/Activate Environment:** Activate the **`yolo`** virtual environment in the Anaconda Prompt.
 ```bash
 conda activate yolo
 
 ```
 
 
-2. **Instalar Ultralytics e Dependências:**
-*(Você deve criar o arquivo `requirements.txt` com `pip install ultralytics` e outras bibliotecas necessárias)*
+2. **Install Ultralytics and Dependencies:**
+*(You must create the `requirements.txt` file with `pip install ultralytics` and other necessary libraries)*
 ```bash
 pip install -r requirements.txt
 
@@ -42,16 +41,16 @@ pip install -r requirements.txt
 
 
 
-####B. TreinamentoO Fine-Tuning foi realizado a partir de um modelo pré-treinado (`yolov8n.pt`) para as **11 classes**.
+####B. TrainingFine-Tuning was performed starting from a pre-trained model (`yolov8n.pt`) for the **11 classes**.
 
-* **Comando de Treinamento (Exemplo):**
+* **Training Command (Example):**
 ```bash
 yolo train model=yolov8n.pt data="ppe_glass_data.yaml" epochs=150 imgsz=640 batch=4 project=./results_yolov8n_100e/kaggle/working/runs/detect cache=False device=cpu
 
 ```
 
 
-* **Para Retomar o Treinamento:** Utilize o *flag* `resume` e o caminho do seu projeto:
+* **To Resume Training:** Use the `resume` flag and the path to your project:
 ```bash
 yolo train resume project=./results_yolov8n_100e/kaggle/working/runs/detect/train
 
@@ -59,20 +58,24 @@ yolo train resume project=./results_yolov8n_100e/kaggle/working/runs/detect/trai
 
 
 
-####C. Detecção/Uso do Modelo (CLI)Para usar o modelo treinado (`best.pt`) na webcam ou em um arquivo de vídeo, aponte para o caminho do modelo e forneça o arquivo de configuração de classes.
+####C. Detection/Model Usage (CLI)To use the trained model (`best.pt`) on a webcam or a video file, point to the model path and provide the class configuration file.
 
-* **Webcam (Detecção em Tempo Real):**
+* **Webcam (Real-Time Detection):**
 ```bash
 yolo predict model=./results_yolov8n_100e/kaggle/working/runs/detect/train/weights/best.pt source=0 data=ppe_glass_data.yaml
 
 ```
 
 
-* **Arquivo de Vídeo/Imagem:**
+* **Video/Image File:**
 ```bash
-yolo predict model=./results_yolov8n_100e/kaggle/working/runs/detect/train/weights/best.pt source="caminho/para/seu/arquivo.mp4" data=ppe_glass_data.yaml
+yolo predict model=./results_yolov8n_100e/kaggle/working/runs/detect/train/weights/best.pt source="path/to/your/file.mp4" data=ppe_glass_data.yaml
 
 ```
+
+
+
+---
 
 
 

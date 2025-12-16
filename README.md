@@ -78,4 +78,4 @@ yolo predict model=./results_yolov8n_100e/kaggle/working/runs/detect/train/weigh
 
 ---
 
-Este README é o reflexo exato do que está no seu repositório agora!
+

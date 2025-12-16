@@ -1,0 +1,26 @@
+# Caminho absoluto para a pasta raiz dos dados (onde está css-data)
+path: C:\Users\camila\Downloads\archive (2)\css-data
+
+# Pastas onde o YOLO irá procurar as imagens e labels
+train: train/images
+val: valid/images
+
+# Número total de classes = 13 (0 a 12)
+nc: 13 
+
+# Nomes das classes
+names: [
+  'Hardhat',      # 0 
+  'Mask',         # 1 
+  'NO-Hardhat',   # 2 
+  'NO-Mask',      # 3 
+  'NO-Safety Vest', # 4 
+  'Person',       # 5 
+  'Safety Cone',  # 6 
+  'Safety Vest',  # 7 
+  'machinery',    # 8 
+  'vehicle',      # 9 
+  'gloves',       # 10 <--- NOVO ID
+  'no-gloves',    # 11 <--- NOVO ID
+  'goggles'       # 12 <--- ID que você queria manter
+]

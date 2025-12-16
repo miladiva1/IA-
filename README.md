@@ -19,7 +19,7 @@
 
 | Detalhes do Dataset |
 | --- |
-| **Dataset Principal (PPE de Construção - 10 Classes):** Fonte: [Kaggle - Construction Site Safety Image Dataset (Roboflow)](https://www.google.com/search?q=https://universe.roboflow.com/testcasque/ppe-detection-qlq3d/dataset/1) |
+| **Dataset Principal (PPE de Construção - 10 Classes):** Fonte:https://www.kaggle.com/datasets/snehilsanyal/construction-site-safety-image-dataset-roboflow
 | **Classe Adicional:** A classe de óculos foi incluída no ID `10` após a fusão dos dados. |
 https://universe.roboflow.com/v2-tc2ax/glass-kuedh
 https://universe.roboflow.com/work-dvvvh/gloves-gzbgu
